@@ -1,0 +1,6 @@
+@MediSyncHub.Bootstrapper_HostAddress = http://localhost:5121
+
+GET {{MediSyncHub.Bootstrapper_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

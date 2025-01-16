@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediSyncHub.SharedKernel", "MediSyncHub.SharedKernel", "{8B357CC9-9118-4A69-B62D-641564AEB03A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediSyncHub.API", "MediSyncHub.API", "{1B6E7E55-FD2D-4162-B679-5A9733DF9CAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediSyncHub.Modules", "MediSyncHub.Modules", "{86C1AEA6-B6D2-4BEF-BD5D-2A4ADC95CA4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.SharedKernel", "MediSyncHub.SharedKernel\MediSyncHub.SharedKernel.csproj", "{976FB0E4-F07F-4D55-8456-175F9C5B6F4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Bootstrapper", "MediSyncHub.API\MediSyncHub.Bootstrapper\MediSyncHub.Bootstrapper.csproj", "{094BABD5-D536-4F47-A63A-555B2DCA2BE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{976FB0E4-F07F-4D55-8456-175F9C5B6F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976FB0E4-F07F-4D55-8456-175F9C5B6F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976FB0E4-F07F-4D55-8456-175F9C5B6F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976FB0E4-F07F-4D55-8456-175F9C5B6F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094BABD5-D536-4F47-A63A-555B2DCA2BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094BABD5-D536-4F47-A63A-555B2DCA2BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094BABD5-D536-4F47-A63A-555B2DCA2BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094BABD5-D536-4F47-A63A-555B2DCA2BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{976FB0E4-F07F-4D55-8456-175F9C5B6F4F} = {8B357CC9-9118-4A69-B62D-641564AEB03A}
+		{094BABD5-D536-4F47-A63A-555B2DCA2BE7} = {1B6E7E55-FD2D-4162-B679-5A9733DF9CAC}
+	EndGlobalSection
+EndGlobal
