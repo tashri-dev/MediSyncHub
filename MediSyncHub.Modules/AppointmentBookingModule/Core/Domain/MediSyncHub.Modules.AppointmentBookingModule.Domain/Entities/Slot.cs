@@ -1,33 +1,37 @@
 ﻿using MediSyncHub.SharedKernel.Data;
+using MediSyncHub.SharedKernel.Data.Events;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
+namespace MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
 
 public class Slot : BaseEntity<Guid>
 {
     public DateTime Time { get; private set; }
     public bool IsReserved { get; private set; }
     public decimal Cost { get; private set; }
-
-    private Slot() { }
+   
+    private Slot()
+    {
+    }
 
     public static Slot Create(
+        Guid Id,
         DateTime time,
-        decimal cost)
+        decimal cost, DateTime createdAt)
     {
         return new Slot
         {
-            Id = Guid.NewGuid(),
+            Id = Id,
             Time = time,
             IsReserved = false,
             Cost = cost,
-            CreatedAt = DateTime.UtcNow,
+            CreatedAt = createdAt
         };
     }
 
-    // This will be called by an integration event handler
-    public void MarkAsReserved()
+    public void Reserve(Guid patientId)
     {
+        if (IsReserved)
+            throw new InvalidOperationException("Slot is already reserved");
         IsReserved = true;
-        UpdatedAt = DateTime.UtcNow;
     }
 }

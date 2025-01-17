@@ -30,6 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBookingModule\Infrastructure\MediSyncHub.Modules.AppointmentBookingModule.Infrastructure\MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBookingModule\Presentation\MediSyncHub.Modules.AppointmentBookingModule.Endpoints\MediSyncHub.Modules.AppointmentBookingModule.Endpoints.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailabilityModule\Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailabilityModule\Presentation\MediSyncHub.Modules.DoctorAvailabilityModule.API\MediSyncHub.Modules.DoctorAvailabilityModule.API.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.SharedKernel\MediSyncHub.SharedKernel.csproj" />

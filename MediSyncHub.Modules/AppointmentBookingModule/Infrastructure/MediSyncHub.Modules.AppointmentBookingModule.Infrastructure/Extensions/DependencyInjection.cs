@@ -1,0 +1,26 @@
+using MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
+using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Database;
+using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Repository;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Extensions;
+
+public static class DependencyInjection
+{
+    public static IServiceCollection RegisterInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    {
+        // Register DbContext
+        services.AddDbContext<BookingDbContext>(options =>
+            options.UseNpgsql(
+                configuration.GetConnectionString("DefaultConnection"),
+                b => b.MigrationsHistoryTable("__EFMigrationsHistory", "booking")));
+        
+        // Register repositories
+        services.AddScoped<ISlotRepository, SlotRepository>();
+        services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+        services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<BookingDbContext>());
+        return services;
+    }
+}
