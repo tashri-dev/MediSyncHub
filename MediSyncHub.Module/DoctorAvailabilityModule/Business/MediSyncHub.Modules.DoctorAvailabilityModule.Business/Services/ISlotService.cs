@@ -1,7 +1,11 @@
-﻿namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Services;
+﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Dtos;
+
+namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Services;
 
 public interface ISlotService
 {
-    Task<SlotDto> CreateSlotAsync(DateTime time, Guid doctorId, global::System.String doctorName, global::System.Decimal cost);
-    Task<IEnumerable<SlotDto>> GetAvailableSlotsAsync();
+    Task<SlotDto> CreateSlotAsync(CreateSlotDto slot, CancellationToken cancellationToken = default);
+    Task<IEnumerable<SlotDto>> GetAvailableSlotsAsync(CancellationToken cancellationToken = default);
+    Task<SlotDto> GetSlotAsync(Guid id, CancellationToken cancellationToken = default);
+    Task GetAllSlotsAsync(CancellationToken cancellationToken = default);
 }
