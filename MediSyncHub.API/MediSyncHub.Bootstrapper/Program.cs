@@ -1,5 +1,5 @@
 using MediSyncHub.Modules.DoctorAvailabilityModule.API.Extensions;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data;
+using MediSyncHub.Modules.DoctorAvailabilityModules.Business.Data;
 using MediSyncHub.SharedKernel.Exetinsions;
 
 using Microsoft.EntityFrameworkCore;
