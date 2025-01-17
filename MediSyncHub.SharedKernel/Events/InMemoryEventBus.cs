@@ -1,5 +1,6 @@
 ﻿using MediSyncHub.SharedKernel.Events.EventBus;
 using MediSyncHub.SharedKernel.Handlers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MediSyncHub.SharedKernel.Events;
 
