@@ -12,6 +12,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY ["MediSyncHub.Modules/MediSyncHub."
 COPY ["MediSyncHub.API/MediSyncHub.Bootstrapper/MediSyncHub.Bootstrapper.csproj", "MediSyncHub.API/MediSyncHub.Bootstrapper/"]
 RUN dotnet restore "./MediSyncHub.API/MediSyncHub.Bootstrapper/MediSyncHub.Bootstrapper.csproj"
 COPY . .
