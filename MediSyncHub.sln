@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.DoctorAvailabilityModule.Business", "MediSyncHub.Module\DoctorAvailabilityModule\Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business.csproj", "{DBF6B4EA-88F4-42EE-AAB2-0A2FE3946C36}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F84D994F-7067-4D1C-B1C3-F609B3F0448D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.DoctorAvailabilityModule.API", "MediSyncHub.Modules\Presentation\MediSyncHub.Modules.DoctorAvailabilityModule.API\MediSyncHub.Modules.DoctorAvailabilityModule.API.csproj", "{EF718E5D-600E-4DA3-9520-46897D08FEB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{DBF6B4EA-88F4-42EE-AAB2-0A2FE3946C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBF6B4EA-88F4-42EE-AAB2-0A2FE3946C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBF6B4EA-88F4-42EE-AAB2-0A2FE3946C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F84D994F-7067-4D1C-B1C3-F609B3F0448D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84D994F-7067-4D1C-B1C3-F609B3F0448D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84D994F-7067-4D1C-B1C3-F609B3F0448D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84D994F-7067-4D1C-B1C3-F609B3F0448D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF718E5D-600E-4DA3-9520-46897D08FEB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF718E5D-600E-4DA3-9520-46897D08FEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF718E5D-600E-4DA3-9520-46897D08FEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF718E5D-600E-4DA3-9520-46897D08FEB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +69,6 @@ Global
 		{3C311414-0F54-4CE7-93CC-5F0A84944244} = {86C1AEA6-B6D2-4BEF-BD5D-2A4ADC95CA4E}
 		{1A039663-351C-4B97-9073-16B010C08381} = {86C1AEA6-B6D2-4BEF-BD5D-2A4ADC95CA4E}
 		{DBF6B4EA-88F4-42EE-AAB2-0A2FE3946C36} = {3C311414-0F54-4CE7-93CC-5F0A84944244}
+		{EF718E5D-600E-4DA3-9520-46897D08FEB2} = {1A039663-351C-4B97-9073-16B010C08381}
 	EndGlobalSection
 EndGlobal
