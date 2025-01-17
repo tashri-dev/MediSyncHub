@@ -42,6 +42,9 @@ internal class SlotService(ISlotRepository slotRepository) : ISlotService
         };
     }
 
-    public async Task GetAllSlotsAsync(CancellationToken cancellationToken = default) =>
-        await slotRepository.GetAllSlotsAsync(cancellationToken);
+    public async Task<IEnumerable<SlotDto>> GetAllSlotsAsync(CancellationToken cancellationToken = default)
+    {
+        var slots = await slotRepository.GetAllSlotsAsync(cancellationToken);
+        return slots.Select(slot => (SlotDto)slot);
+    }
 }
