@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\MediSyncHub.Modules.AppointmentBookingModule.Domain\MediSyncHub.Modules.AppointmentBookingModule.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore">
+      <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.1\Microsoft.AspNetCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
