@@ -12,8 +12,11 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["MediSyncHub.Modules/MediSyncHub."
 COPY ["MediSyncHub.API/MediSyncHub.Bootstrapper/MediSyncHub.Bootstrapper.csproj", "MediSyncHub.API/MediSyncHub.Bootstrapper/"]
+COPY ["MediSyncHub.Modules/DoctorAvailabilityModule/Business/MediSyncHub.Modules.DoctorAvailabilityModule.Business/MediSyncHub.Modules.DoctorAvailabilityModule.Business.csproj", "MediSyncHub.Modules/DoctorAvailabilityModule/Business/MediSyncHub.Modules.DoctorAvailabilityModule.Business/"]
+COPY ["MediSyncHub.Modules/DoctorAvailabilityModule/Data/MediSyncHub.Modules.DoctorAvailabilityModule.Data/MediSyncHub.Modules.DoctorAvailabilityModule.Data.csproj", "MediSyncHub.Modules/DoctorAvailabilityModule/Data/MediSyncHub.Modules.DoctorAvailabilityModule.Data/"]
+COPY ["MediSyncHub.SharedKernel/MediSyncHub.SharedKernel.csproj", "MediSyncHub.SharedKernel/"]
+COPY ["MediSyncHub.Modules/DoctorAvailabilityModule/Presentation/MediSyncHub.Modules.DoctorAvailabilityModule.API/MediSyncHub.Modules.DoctorAvailabilityModule.API.csproj", "MediSyncHub.Modules/DoctorAvailabilityModule/Presentation/MediSyncHub.Modules.DoctorAvailabilityModule.API/"]
 RUN dotnet restore "./MediSyncHub.API/MediSyncHub.Bootstrapper/MediSyncHub.Bootstrapper.csproj"
 COPY . .
 WORKDIR "/src/MediSyncHub.API/MediSyncHub.Bootstrapper"

@@ -12,6 +12,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="14.2.0" />
     <PackageReference Include="NSwag.Core" Version="14.2.0" />
@@ -22,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MediSyncHub.Modules\Presentation\MediSyncHub.Modules.DoctorAvailabilityModule.API\MediSyncHub.Modules.DoctorAvailabilityModule.API.csproj" />
-    <ProjectReference Include="..\..\MediSyncHub.Module\DoctorAvailabilityModule\Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailabilityModule\Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailabilityModule\Presentation\MediSyncHub.Modules.DoctorAvailabilityModule.API\MediSyncHub.Modules.DoctorAvailabilityModule.API.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.SharedKernel\MediSyncHub.SharedKernel.csproj" />
   </ItemGroup>
 
