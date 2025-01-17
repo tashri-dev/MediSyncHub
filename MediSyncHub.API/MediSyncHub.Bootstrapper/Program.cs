@@ -1,7 +1,6 @@
 using MediSyncHub.Modules.DoctorAvailabilityModule.API.Extensions;
-using MediSyncHub.Modules.DoctorAvailabilityModules.Business.Data;
+using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data;
 using MediSyncHub.SharedKernel.Exetinsions;
-
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +26,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     // Use NSwag Middlewares
-    app.UseOpenApi();       
+    app.UseOpenApi();
     app.UseSwaggerUi();
 }
 
