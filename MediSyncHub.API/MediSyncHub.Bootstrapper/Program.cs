@@ -1,5 +1,9 @@
+using MediSyncHub.Modules.AppointmentBookingModule.Application.Extensions;
+using MediSyncHub.Modules.AppointmentBookingModule.Endpoints.Extenstion;
+using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Database;
 using MediSyncHub.Modules.DoctorAvailabilityModule.API.Extensions;
 using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data;
+using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Extensions;
 using MediSyncHub.SharedKernel.Exetinsions;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,13 +23,13 @@ builder.Services.AddSharedInfrastructure(builder.Configuration);
 
 // Add modules
 builder.Services.AddAvailabilityModule(builder.Configuration);
+builder.Services.AddAppointmentBookingModule(builder.Configuration);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
-    // Use NSwag Middlewares
     app.UseOpenApi();
     app.UseSwaggerUi();
 }
@@ -43,6 +47,9 @@ using (var scope = app.Services.CreateScope())
     {
         var availabilityContext = services.GetRequiredService<DoctorAvailabilityDbContext>();
         await availabilityContext.Database.MigrateAsync();
+
+        var bookingContext = services.GetRequiredService<BookingDbContext>();
+        await bookingContext.Database.MigrateAsync();
     }
     catch (Exception ex)
     {
@@ -51,5 +58,9 @@ using (var scope = app.Services.CreateScope())
         throw;
     }
 }
+//configure the subscribed event handlers
+
+app.ConfigureAppointmentBookingEventBus();
+app.ConfigureDoctorAvailabilityEventBus();
 
 app.Run();
