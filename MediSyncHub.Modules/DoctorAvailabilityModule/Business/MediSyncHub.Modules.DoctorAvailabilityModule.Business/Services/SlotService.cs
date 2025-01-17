@@ -1,45 +1,52 @@
 ﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Dtos;
 using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
 using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Repository;
+using MediSyncHub.SharedKernel.Events.EventBus;
+using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
+using Microsoft.Extensions.Logging;
 
 namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Services;
 
-internal class SlotService(ISlotRepository slotRepository) : ISlotService
+internal class SlotService(
+    ISlotRepository slotRepository,
+    IEventBus eventBus,
+    ILogger<SlotService> logger)
+    : ISlotService
 {
-    public async Task<SlotDto> CreateSlotAsync(
-        DateTime time,
-        Guid doctorId,
-        string doctorName,
-        decimal cost)
+    public async Task<SlotDto> CreateSlotAsync(CreateSlotDto slotDto, CancellationToken cancellationToken = default)
     {
-        var slot = Slot.Create(time, cost);
-        await slotRepository.AddAsync(slot);
+        var slot = (Slot)slotDto;
+        await slotRepository.AddAsync(slot, cancellationToken);
 
-        return slot;
-    }
+        // Publish integration event
+        var slotCreatedIntegrationEvent = new SlotCreatedIntegrationEvent(
+            slot.Id,
+            slot.Time,
+            slot.Cost,
+            slot.CreatedAt);
 
-    public async Task<SlotDto> CreateSlotAsync(CreateSlotDto slot, CancellationToken cancellationToken = default)
-    {
-        await slotRepository.AddAsync(slot);
+        try
+        {
+            await eventBus.PublishAsync(slotCreatedIntegrationEvent, cancellationToken);
+            logger.LogInformation(
+                "Published SlotCreatedIntegrationEvent for slot {SlotId}",
+                slot.Id);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(
+                ex,
+                "Error publishing SlotCreatedIntegrationEvent for slot {SlotId}",
+                slot.Id);
+        }
+
         return (SlotDto)slot;
-    }
-
-    public async Task<IEnumerable<SlotDto>> GetAvailableSlotsAsync(CancellationToken cancellationToken = default)
-    {
-        var slots = await slotRepository.GetAvailableSlotsAsync(cancellationToken);
-        return slots.Select(slot => (SlotDto)slot);
     }
 
     public async Task<SlotDto> GetSlotAsync(Guid id, CancellationToken cancellationToken = default)
     {
         var slot = await slotRepository.GetByIdAsync(id, cancellationToken);
-        return new SlotDto()
-        {
-            Id = slot.Id,
-            IsReserved = slot.IsReserved,
-            Time = slot.Time,
-            Cost = slot.Cost
-        };
+        return (SlotDto)slot;
     }
 
     public async Task<IEnumerable<SlotDto>> GetAllSlotsAsync(CancellationToken cancellationToken = default)
