@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data
 {
-    internal class DoctorAvailabilityDbContext(DbContextOptions<DoctorAvailabilityDbContext> options)
+    public class DoctorAvailabilityDbContext(DbContextOptions<DoctorAvailabilityDbContext> options)
         : DbContext(options)
     {
         public DbSet<Slot> Slots { get; set; }
