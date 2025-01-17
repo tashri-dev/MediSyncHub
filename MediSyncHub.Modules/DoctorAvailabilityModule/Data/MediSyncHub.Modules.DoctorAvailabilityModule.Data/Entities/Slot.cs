@@ -19,13 +19,15 @@ public class Slot : BaseEntity<Guid>
             Id = Guid.NewGuid(),
             Time = time,
             IsReserved = false,
-            Cost = cost
+            Cost = cost,
+            CreatedAt = DateTime.UtcNow,
         };
     }
 
     // This will be called by an integration event handler
-    internal void MarkAsReserved()
+    public void MarkAsReserved()
     {
         IsReserved = true;
+        UpdatedAt = DateTime.UtcNow;
     }
 }
