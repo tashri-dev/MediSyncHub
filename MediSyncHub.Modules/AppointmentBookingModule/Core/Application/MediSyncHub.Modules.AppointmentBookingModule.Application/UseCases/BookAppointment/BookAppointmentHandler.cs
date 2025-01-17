@@ -60,11 +60,6 @@ public class BookAppointmentHandler(
     private async Task PublishEventsAsync(Appointment appointment, Slot slot,
         CancellationToken cancellationToken = default)
     {
-        // Domain events
-        var domainEvents = appointment.DomainEvents.Concat(slot.DomainEvents);
-        var domainEventTasks = domainEvents.Select(e => eventBus.PublishAsync(e, cancellationToken));
-        await Task.WhenAll(domainEventTasks);
-
         // Integration events
         var integrationEvents = new object[]
         {
