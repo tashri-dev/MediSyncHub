@@ -1,38 +1,37 @@
-﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Repository;
+﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data;
+using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
+using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Repositories;
 
-internal class SlotRepository : ISlotRepository
+internal class SlotRepository(DoctorAvailabilityDbContext context) : ISlotRepository
 {
-    private readonly AvailabilityDbContext _context;
-
-    public SlotRepository(AvailabilityDbContext context)
+    public async Task<IEnumerable<Slot>> GetAvailableSlotsAsync(CancellationToken cancellationToken = default)
     {
-        _context = context;
-    }
-
-    public async Task<IEnumerable<Slot>> GetAvailableSlotsAsync()
-    {
-        return await _context.Slots
+        return await context.Slots
             .Where(x => !x.IsReserved)
             .OrderBy(x => x.Time)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
     }
 
-    public async Task<Slot> GetByIdAsync(Guid id)
+    public async Task<IEnumerable<Slot>> GetAllSlotsAsync(CancellationToken cancellationToken = default) =>
+        await context.Slots.ToListAsync(cancellationToken);
+
+    public async Task<Slot> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        return await _context.Slots.FindAsync(id);
+        return await context.Slots.FindAsync(id, cancellationToken) ?? throw new Exception(" Not Found");
     }
 
-    public async Task AddAsync(Slot slot)
+    public async Task AddAsync(Slot slot, CancellationToken cancellationToken = default)
     {
-        await _context.Slots.AddAsync(slot);
-        await _context.SaveChangesAsync();
+        await context.Slots.AddAsync(slot, cancellationToken);
+        await context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task UpdateAsync(Slot slot)
+    public async Task UpdateAsync(Slot slot, CancellationToken cancellationToken = default)
     {
-        _context.Slots.Update(slot);
-        await _context.SaveChangesAsync();
+        context.Slots.Update(slot);
+        await context.SaveChangesAsync(cancellationToken);
     }
 }
