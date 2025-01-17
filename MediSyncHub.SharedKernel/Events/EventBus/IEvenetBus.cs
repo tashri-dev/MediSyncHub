@@ -1,4 +1,6 @@
-﻿namespace MediSyncHub.SharedKernel.Events.EventBus;
+﻿using MediSyncHub.SharedKernel.Handlers;
+
+namespace MediSyncHub.SharedKernel.Events.EventBus;
 
 public interface IEventBus
 {
