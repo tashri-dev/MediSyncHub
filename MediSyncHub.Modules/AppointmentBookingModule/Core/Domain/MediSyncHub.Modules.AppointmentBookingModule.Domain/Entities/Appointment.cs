@@ -1,5 +1,4 @@
-﻿using MediSyncHub.Modules.AppointmentBookingModule.Domain.Events;
-using MediSyncHub.SharedKernel.Data;
+﻿using MediSyncHub.SharedKernel.Data;
 using MediSyncHub.SharedKernel.Data.Events;
 
 namespace MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
@@ -10,10 +9,10 @@ public class Appointment : BaseEntity<Guid>
     public Guid PatientId { get; private set; }
     public string PatientName { get; private set; }
     public DateTime ReservedAt { get; private set; } = DateTime.UtcNow;
-    private readonly List<IDomainEvent> _domainEvents = new();
-    public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-    private Appointment() { }
+    private Appointment()
+    {
+    }
 
     public static Appointment Create(
         Guid slotId,
@@ -29,9 +28,6 @@ public class Appointment : BaseEntity<Guid>
             ReservedAt = DateTime.UtcNow,
             CreatedAt = DateTime.UtcNow
         };
-
-        appointment._domainEvents.Add(new AppointmentBookedDomainEvent(appointment));
         return appointment;
     }
-
 }
