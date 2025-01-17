@@ -29,6 +29,26 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoctorAvailabilityModule", "DoctorAvailabilityModule", "{0B8B0644-BD6D-4099-B447-DDAEF242150E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppointmentBookingModule", "AppointmentBookingModule", "{42A2648E-1C3E-4299-9C52-BF47387D4E5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D4F8A2F4-6386-418D-92A7-137E9CA62971}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{9E6327D3-83D2-4340-AE36-B4FB733A1FB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B47E35AF-AC78-4E6F-B893-1213A94747E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{3035810A-C947-4AB0-AD77-19E4AE0086E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{031C5F8D-D039-4830-B796-8DFBE0B470A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.AppointmentBookingModule.Application", "MediSyncHub.Modules\AppointmentBookingModule\Core\Application\MediSyncHub.Modules.AppointmentBookingModule.Application\MediSyncHub.Modules.AppointmentBookingModule.Application.csproj", "{B104D179-CD1D-47CE-B54D-888048F1123C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.AppointmentBookingModule.Domain", "MediSyncHub.Modules\AppointmentBookingModule\Core\Domain\MediSyncHub.Modules.AppointmentBookingModule.Domain\MediSyncHub.Modules.AppointmentBookingModule.Domain.csproj", "{C40CFFB1-C393-4977-A54F-37E16E4A8179}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.AppointmentBookingModule.Infrastructure", "MediSyncHub.Modules\AppointmentBookingModule\Infrastructure\MediSyncHub.Modules.AppointmentBookingModule.Infrastructure\MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.csproj", "{1112A8E0-EA26-41F1-B72D-964FA1A6A943}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.AppointmentBookingModule.Endpoints", "MediSyncHub.Modules\AppointmentBookingModule\Presentation\MediSyncHub.Modules.AppointmentBookingModule.Endpoints\MediSyncHub.Modules.AppointmentBookingModule.Endpoints.csproj", "{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +79,22 @@ Global
 		{F84D994F-7067-4D1C-B1C3-F609B3F0448D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F84D994F-7067-4D1C-B1C3-F609B3F0448D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F84D994F-7067-4D1C-B1C3-F609B3F0448D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B104D179-CD1D-47CE-B54D-888048F1123C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B104D179-CD1D-47CE-B54D-888048F1123C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B104D179-CD1D-47CE-B54D-888048F1123C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B104D179-CD1D-47CE-B54D-888048F1123C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40CFFB1-C393-4977-A54F-37E16E4A8179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40CFFB1-C393-4977-A54F-37E16E4A8179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40CFFB1-C393-4977-A54F-37E16E4A8179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40CFFB1-C393-4977-A54F-37E16E4A8179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1112A8E0-EA26-41F1-B72D-964FA1A6A943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1112A8E0-EA26-41F1-B72D-964FA1A6A943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1112A8E0-EA26-41F1-B72D-964FA1A6A943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1112A8E0-EA26-41F1-B72D-964FA1A6A943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +109,15 @@ Global
 		{DBF6B4EA-88F4-42EE-AAB2-0A2FE3946C36} = {3C311414-0F54-4CE7-93CC-5F0A84944244}
 		{EF718E5D-600E-4DA3-9520-46897D08FEB2} = {1A039663-351C-4B97-9073-16B010C08381}
 		{0B8B0644-BD6D-4099-B447-DDAEF242150E} = {86C1AEA6-B6D2-4BEF-BD5D-2A4ADC95CA4E}
+		{42A2648E-1C3E-4299-9C52-BF47387D4E5D} = {86C1AEA6-B6D2-4BEF-BD5D-2A4ADC95CA4E}
+		{D4F8A2F4-6386-418D-92A7-137E9CA62971} = {42A2648E-1C3E-4299-9C52-BF47387D4E5D}
+		{9E6327D3-83D2-4340-AE36-B4FB733A1FB4} = {D4F8A2F4-6386-418D-92A7-137E9CA62971}
+		{B47E35AF-AC78-4E6F-B893-1213A94747E9} = {D4F8A2F4-6386-418D-92A7-137E9CA62971}
+		{3035810A-C947-4AB0-AD77-19E4AE0086E0} = {42A2648E-1C3E-4299-9C52-BF47387D4E5D}
+		{031C5F8D-D039-4830-B796-8DFBE0B470A6} = {42A2648E-1C3E-4299-9C52-BF47387D4E5D}
+		{B104D179-CD1D-47CE-B54D-888048F1123C} = {9E6327D3-83D2-4340-AE36-B4FB733A1FB4}
+		{C40CFFB1-C393-4977-A54F-37E16E4A8179} = {B47E35AF-AC78-4E6F-B893-1213A94747E9}
+		{1112A8E0-EA26-41F1-B72D-964FA1A6A943} = {3035810A-C947-4AB0-AD77-19E4AE0086E0}
+		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2} = {031C5F8D-D039-4830-B796-8DFBE0B470A6}
 	EndGlobalSection
 EndGlobal
