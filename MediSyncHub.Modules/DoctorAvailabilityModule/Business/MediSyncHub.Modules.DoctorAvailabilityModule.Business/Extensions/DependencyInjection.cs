@@ -12,7 +12,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddBusinessLayer(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DoctorAvailabilityConnectionString");
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<DoctorAvailabilityDbContext>(options =>
         {
             options.UseNpgsql(connectionString);
