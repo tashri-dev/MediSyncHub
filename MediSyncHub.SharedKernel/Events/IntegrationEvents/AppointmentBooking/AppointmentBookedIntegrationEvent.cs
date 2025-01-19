@@ -5,5 +5,9 @@ public record AppointmentBookedIntegrationEvent(
     Guid SlotId,
     Guid PatientId,
     string PatientName,
-    DateTime BookedAt
+    Guid DoctorId,
+    string DoctorName,
+    DateTime BookedAt,
+    DateTime AppointmentTime,
+    DateTime CreatedAt
 );
