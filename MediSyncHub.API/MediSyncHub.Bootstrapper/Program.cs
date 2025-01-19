@@ -8,6 +8,7 @@ using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Extensions;
 using MediSyncHub.SharedKernel.Exetinsions;
 using Microsoft.EntityFrameworkCore;
 using MediSyncHub.AppointmentConfirmationModule.Services.Extensions;
+using MediSyncHub.Bootstrapper.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,7 +31,6 @@ services.AddAppointmentBookingModule(builder.Configuration);
 services.AddAppointmentConfirmationModule(builder.Configuration);
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
@@ -38,14 +38,26 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUi();
 }
 
-// Then the rest of your pipeline
+// Add middleware
+app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
 // Run database migrations
-using (var scope = app.Services.CreateScope())
+await MigrateDb();
+
+//configure the subscribed event handlers
+app.ConfigureAppointmentBookingEventBus();
+app.ConfigureDoctorAvailabilityEventBus();
+app.ConfigureAppointmentBookedEventBus();
+
+app.Run();
+
+
+async Task MigrateDb()
 {
+    using var scope = app.Services.CreateScope();
     var scopeServiceProvider = scope.ServiceProvider;
     try
     {
@@ -65,9 +77,3 @@ using (var scope = app.Services.CreateScope())
         throw;
     }
 }
-//configure the subscribed event handlers
-
-app.ConfigureAppointmentBookingEventBus();
-app.ConfigureDoctorAvailabilityEventBus();
-app.ConfigureAppointmentBookedEventBus();
-app.Run();
