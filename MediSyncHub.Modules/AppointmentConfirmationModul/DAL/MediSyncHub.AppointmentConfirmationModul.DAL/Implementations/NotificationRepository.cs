@@ -5,8 +5,8 @@ namespace MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
 
 internal class NotificationRepository(ConfirmationDbContext context) : INotificationRepository
 {
-    public async Task AddAsync(Notification notification)
+    public async Task AddAsync(Notification notification, CancellationToken cancellationToken)
     {
-        await context.Notifications.AddAsync(notification);
+        await context.Notifications.AddAsync(notification, cancellationToken);
     }
 }

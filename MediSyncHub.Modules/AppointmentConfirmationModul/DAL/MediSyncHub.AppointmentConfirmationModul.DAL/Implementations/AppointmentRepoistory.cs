@@ -5,8 +5,8 @@ namespace MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
 
 internal class AppointmentRepoistory(ConfirmationDbContext context) : IAppointmentRepository
 {
-    public async Task AddAsync(Appointment appointment)
+    public async Task AddAsync(Appointment appointment, CancellationToken cancellationToken)
     {
-        await context.Appointments.AddAsync(appointment);
+        await context.Appointments.AddAsync(appointment, cancellationToken);
     }
 }
