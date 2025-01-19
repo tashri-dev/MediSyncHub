@@ -7,24 +7,25 @@ using MediSyncHub.SharedKernel.Data;
 
 namespace MediSyncHub.AppointmentConfirmationModule.DAL.models
 {
-    public class Notification:BaseEntity<Guid>
+    public class Notification : BaseEntity<Guid>
     {
-      
         public Guid AppointmentId { get; set; }
         public Guid PatientId { get; set; }
         public required string PatientName { get; set; }
-        public DateTime BookedAt { get; set; }
-        public virtual  Appointment Appointment { get; set; }
-        
+        public Guid DoctorId { get; set; }
+        public string DoctorName { get; set; }
+        public virtual Appointment Appointment { get; set; }
+
         private Notification()
         {
         }
-        
+
         public static Notification Create(
             Guid appointmentId,
-            Guid slotId,
             Guid patientId,
-            string patientName)
+            string patientName,
+            Guid doctorId,
+            string doctorName)
         {
             var notification = new Notification
             {
@@ -32,11 +33,11 @@ namespace MediSyncHub.AppointmentConfirmationModule.DAL.models
                 AppointmentId = appointmentId,
                 PatientId = patientId,
                 PatientName = patientName,
-                BookedAt = DateTime.UtcNow,
+                DoctorId = doctorId,
+                DoctorName = doctorName,
                 CreatedAt = DateTime.UtcNow
             };
             return notification;
         }
-        
     }
 }
