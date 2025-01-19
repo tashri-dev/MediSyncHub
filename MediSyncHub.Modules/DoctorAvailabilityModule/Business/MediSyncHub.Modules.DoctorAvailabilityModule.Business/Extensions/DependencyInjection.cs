@@ -5,6 +5,7 @@ using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Services;
 using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Repository;
 using MediSyncHub.SharedKernel.Events.EventBus;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
+using MediSyncHub.SharedKernel.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,7 +17,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddBusinessLayer(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
+        var connectionString = configuration.GetConnectionString(Constants.DB_CONNECTION_STRING);
         services.AddDbContext<DoctorAvailabilityDbContext>(options =>
         {
             options.UseNpgsql(connectionString);
