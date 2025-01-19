@@ -4,5 +4,5 @@ namespace MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
 
 public interface INotificationRepository
 {
-    Task AddAsync(Notification notification);
+    Task AddAsync(Notification notification, CancellationToken cancellationToken);
 }
