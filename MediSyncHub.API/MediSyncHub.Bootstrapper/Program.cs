@@ -1,3 +1,4 @@
+using MediSyncHub.AppointmentConfirmationModule.DAL.Database;
 using MediSyncHub.Modules.AppointmentBookingModule.Application.Extensions;
 using MediSyncHub.Modules.AppointmentBookingModule.Endpoints.Extenstion;
 using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Database;
@@ -6,12 +7,14 @@ using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data;
 using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Extensions;
 using MediSyncHub.SharedKernel.Exetinsions;
 using Microsoft.EntityFrameworkCore;
+using MediSyncHub.AppointmentConfirmationModule.Services.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
-
+var services = builder.Services;
 // Add services to the container
-builder.Services.AddControllers();
-builder.Services.AddOpenApiDocument(config =>
+services.AddControllers();
+services.AddOpenApiDocument(config =>
 {
     config.Title = "MediSyncHub API";
     config.Version = "v1";
@@ -19,11 +22,12 @@ builder.Services.AddOpenApiDocument(config =>
 });
 
 // Add shared infrastructure
-builder.Services.AddSharedInfrastructure(builder.Configuration);
+services.AddSharedInfrastructure(builder.Configuration);
 
 // Add modules
-builder.Services.AddAvailabilityModule(builder.Configuration);
-builder.Services.AddAppointmentBookingModule(builder.Configuration);
+services.AddAvailabilityModule(builder.Configuration);
+services.AddAppointmentBookingModule(builder.Configuration);
+services.AddAppointmentConfirmationModule(builder.Configuration);
 
 var app = builder.Build();
 
@@ -42,18 +46,21 @@ app.MapControllers();
 // Run database migrations
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
+    var scopeServiceProvider = scope.ServiceProvider;
     try
     {
-        var availabilityContext = services.GetRequiredService<DoctorAvailabilityDbContext>();
+        var availabilityContext = scopeServiceProvider.GetRequiredService<DoctorAvailabilityDbContext>();
         await availabilityContext.Database.MigrateAsync();
 
-        var bookingContext = services.GetRequiredService<BookingDbContext>();
+        var bookingContext = scopeServiceProvider.GetRequiredService<BookingDbContext>();
         await bookingContext.Database.MigrateAsync();
+
+        var confirmationDbContext = scopeServiceProvider.GetRequiredService<ConfirmationDbContext>();
+        await confirmationDbContext.Database.MigrateAsync();
     }
     catch (Exception ex)
     {
-        var logger = services.GetRequiredService<ILogger<Program>>();
+        var logger = scopeServiceProvider.GetRequiredService<ILogger<Program>>();
         logger.LogError(ex, "An error occurred while migrating the database");
         throw;
     }
@@ -62,5 +69,5 @@ using (var scope = app.Services.CreateScope())
 
 app.ConfigureAppointmentBookingEventBus();
 app.ConfigureDoctorAvailabilityEventBus();
-
+app.ConfigureAppointmentBookedEventBus();
 app.Run();
