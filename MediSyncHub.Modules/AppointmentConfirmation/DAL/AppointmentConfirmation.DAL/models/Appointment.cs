@@ -1,6 +1,6 @@
 using MediSyncHub.SharedKernel.Data;
 
-namespace MediSyncHub.AppointmentConfirmationModule.DAL.models;
+namespace AppointmentConfirmation.DAL.models;
 
 public class Appointment : BaseEntity<Guid>
 {
@@ -11,6 +11,7 @@ public class Appointment : BaseEntity<Guid>
     public string DoctorName { get; private set; }
     public DateTime ReservedAt { get; private set; } = DateTime.UtcNow;
     public DateTime AppointmentDate { get; private set; }
+
     private Appointment()
     {
     }
@@ -24,7 +25,7 @@ public class Appointment : BaseEntity<Guid>
         string doctorName,
         DateTime appointmentDate,
         DateTime createdAt
-        )
+    )
     {
         var appointment = new Appointment
         {

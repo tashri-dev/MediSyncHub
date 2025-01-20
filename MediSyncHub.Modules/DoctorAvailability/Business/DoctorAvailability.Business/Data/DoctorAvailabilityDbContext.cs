@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
+﻿using DoctorAvailability.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data
-{
-    public class DoctorAvailabilityDbContext(DbContextOptions<DoctorAvailabilityDbContext> options)
-        : DbContext(options)
-    {
-        public DbSet<Slot> Slots { get; set; }
+namespace DoctorAvailability.Business.Data;
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+public class DoctorAvailabilityDbContext(DbContextOptions<DoctorAvailabilityDbContext> options)
+    : DbContext(options)
+{
+    public DbSet<Slot> Slots { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Slot>(builder =>
         {
-            modelBuilder.Entity<Slot>(builder =>
-            {
-                builder.ToTable("Slots", "DoctorAvailability");
-                builder.HasKey(x => x.Id);
-                builder.Property(x => x.Time).IsRequired();
-                builder.Property(x => x.Cost).HasColumnType("decimal(18,2)");
-            });
-        }
+            builder.ToTable("Slots", "DoctorAvailability");
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Time).IsRequired();
+            builder.Property(x => x.Cost).HasColumnType("decimal(18,2)");
+        });
     }
 }

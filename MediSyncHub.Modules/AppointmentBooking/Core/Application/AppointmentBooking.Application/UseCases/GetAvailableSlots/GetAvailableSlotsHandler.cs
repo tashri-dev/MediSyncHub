@@ -1,18 +1,17 @@
-﻿using MediatR;
-using MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.GetAvailableSlots.Dtos;
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
+﻿using AppointmentBooking.Application.UseCases.GetAvailableSlots.Dtos;
+using AppointmentBooking.Domain.Repository;
+using MediatR;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.GetAvailableSlots
+namespace AppointmentBooking.Application.UseCases.GetAvailableSlots;
+
+public class GetAvailableSlotsHandler(ISlotRepository slotRepository)
+    : IRequestHandler<GetAvailableSlotsQuery, IEnumerable<SlotDto>>
 {
-    public class GetAvailableSlotsHandler(ISlotRepository slotRepository)
-        : IRequestHandler<GetAvailableSlotsQuery, IEnumerable<SlotDto>>
+    public async Task<IEnumerable<SlotDto>> Handle(
+        GetAvailableSlotsQuery request,
+        CancellationToken cancellationToken)
     {
-        public async Task<IEnumerable<SlotDto>> Handle(
-            GetAvailableSlotsQuery request,
-            CancellationToken cancellationToken)
-        {
-            var slots = await slotRepository.GetAvailableSlotsAsync(cancellationToken);
-            return slots.Select(slot => (SlotDto)slot);
-        }
+        var slots = await slotRepository.GetAvailableSlotsAsync(cancellationToken);
+        return slots.Select(slot => (SlotDto)slot);
     }
 }

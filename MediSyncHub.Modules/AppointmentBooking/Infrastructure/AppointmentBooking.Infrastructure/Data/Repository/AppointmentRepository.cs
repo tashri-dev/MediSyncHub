@@ -1,8 +1,9 @@
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
-using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Database;
+using AppointmentBooking.Domain.Entities;
+using AppointmentBooking.Domain.Repository;
+using AppointmentBooking.Infrastructure.Data.Database;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Repository;
+
+namespace AppointmentBooking.Infrastructure.Data.Repository;
 
 public class AppointmentRepository(BookingDbContext context) : IAppointmentRepository
 {

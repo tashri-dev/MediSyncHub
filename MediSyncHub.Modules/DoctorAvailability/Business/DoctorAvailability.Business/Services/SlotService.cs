@@ -1,11 +1,11 @@
-﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Dtos;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Repository;
+﻿using DoctorAvailability.Business.Dtos;
+using DoctorAvailability.Data.Entities;
+using DoctorAvailability.Data.Repository;
 using MediSyncHub.SharedKernel.Events.EventBus;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
 using Microsoft.Extensions.Logging;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Services;
+namespace DoctorAvailability.Business.Services;
 
 internal class SlotService(
     ISlotRepository slotRepository,

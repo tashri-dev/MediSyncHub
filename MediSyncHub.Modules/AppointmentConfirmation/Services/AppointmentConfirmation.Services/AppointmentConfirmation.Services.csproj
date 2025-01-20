@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MediSyncHub\MediSyncHub.Modules\AppointmentConfirmationModul\DAL\MediSyncHub.AppointmentConfirmationModul.DAL\MediSyncHub.AppointmentConfirmationModule.DAL.csproj" />
-    <ProjectReference Include="..\MediSyncHub\MediSyncHub.SharedKernel\MediSyncHub.SharedKernel.csproj" />
+    <ProjectReference Include="..\..\..\..\MediSyncHub.SharedKernel\MediSyncHub.SharedKernel.csproj" />
+    <ProjectReference Include="..\..\DAL\AppointmentConfirmation.DAL\AppointmentConfirmation.DAL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

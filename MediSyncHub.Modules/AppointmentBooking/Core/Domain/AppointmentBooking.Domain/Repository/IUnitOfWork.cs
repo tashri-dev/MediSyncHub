@@ -1,4 +1,4 @@
-namespace MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
+namespace AppointmentBooking.Domain.Repository;
 
 public interface IUnitOfWork
 {

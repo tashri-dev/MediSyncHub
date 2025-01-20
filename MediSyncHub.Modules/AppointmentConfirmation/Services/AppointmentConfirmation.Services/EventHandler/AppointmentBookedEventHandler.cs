@@ -1,10 +1,10 @@
-using MediSyncHub.AppointmentConfirmationModule.DAL.Contracts;
-using MediSyncHub.AppointmentConfirmationModule.DAL.models;
+using AppointmentConfirmation.DAL.Contracts;
+using AppointmentConfirmation.DAL.models;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.AppointmentBooking;
 using MediSyncHub.SharedKernel.Handlers;
 using Microsoft.Extensions.Logging;
 
-namespace MediSyncHub.AppointmentConfirmationModule.Services.EventHandler;
+namespace AppointmentConfirmation.Services.EventHandler;
 
 public class AppointmentBookedEventHandler(
     IAppointmentRepository appointmentRepository,

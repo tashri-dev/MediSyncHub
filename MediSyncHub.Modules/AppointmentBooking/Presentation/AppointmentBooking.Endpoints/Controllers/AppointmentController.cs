@@ -1,10 +1,10 @@
+using AppointmentBooking.Application.UseCases.BookAppointment;
+using AppointmentBooking.Application.UseCases.GetAvailableSlots;
+using AppointmentBooking.Application.UseCases.GetAvailableSlots.Dtos;
 using MediatR;
-using MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.BookAppointment;
-using MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.GetAvailableSlots;
-using MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.GetAvailableSlots.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Endpoints.Controllers;
+namespace AppointmentBooking.Endpoints.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

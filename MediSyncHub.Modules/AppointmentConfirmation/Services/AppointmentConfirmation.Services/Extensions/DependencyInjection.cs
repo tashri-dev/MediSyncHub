@@ -1,13 +1,12 @@
-using MediSyncHub.AppointmentConfirmationModule.DAL.Extensions;
-using MediSyncHub.AppointmentConfirmationModule.Services.EventHandler;
+using AppointmentConfirmation.DAL.Extensions;
+using AppointmentConfirmation.Services.EventHandler;
 using MediSyncHub.SharedKernel.Events.EventBus;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.AppointmentBooking;
-using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MediSyncHub.AppointmentConfirmationModule.Services.Extensions;
+namespace AppointmentConfirmation.Services.Extensions;
 
 public static class DependencyInjection
 {

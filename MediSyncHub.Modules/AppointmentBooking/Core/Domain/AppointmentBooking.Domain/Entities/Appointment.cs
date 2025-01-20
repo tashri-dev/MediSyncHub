@@ -1,7 +1,7 @@
 ﻿using MediSyncHub.SharedKernel.Data;
 using MediSyncHub.SharedKernel.Data.Events;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
+namespace AppointmentBooking.Domain.Entities;
 
 public class Appointment : BaseEntity<Guid>
 {

@@ -1,10 +1,10 @@
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
+using AppointmentBooking.Domain.Entities;
+using AppointmentBooking.Domain.Repository;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
 using MediSyncHub.SharedKernel.Handlers;
 using Microsoft.Extensions.Logging;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Application.IntegrationEvents.Handlers;
+namespace AppointmentBooking.Application.IntegrationEvents.Handlers;
 
 public class SlotCreatedIntegrationEventHandler(
     ISlotRepository slotRepository,

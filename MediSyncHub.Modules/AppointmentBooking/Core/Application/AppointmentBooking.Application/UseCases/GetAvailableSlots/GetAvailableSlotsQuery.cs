@@ -1,6 +1,6 @@
-﻿using MediatR;
-using MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.GetAvailableSlots.Dtos;
+﻿using AppointmentBooking.Application.UseCases.GetAvailableSlots.Dtos;
+using MediatR;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.GetAvailableSlots;
+namespace AppointmentBooking.Application.UseCases.GetAvailableSlots;
 
 public record GetAvailableSlotsQuery : IRequest<IEnumerable<SlotDto>>;

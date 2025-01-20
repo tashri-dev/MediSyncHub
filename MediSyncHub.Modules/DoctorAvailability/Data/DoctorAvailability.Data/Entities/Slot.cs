@@ -1,6 +1,6 @@
 ﻿using MediSyncHub.SharedKernel.Data;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
+namespace DoctorAvailability.Data.Entities;
 
 public class Slot : BaseEntity<Guid>
 {
@@ -8,7 +8,9 @@ public class Slot : BaseEntity<Guid>
     public bool IsReserved { get; private set; }
     public decimal Cost { get; private set; }
 
-    private Slot() { }
+    private Slot()
+    {
+    }
 
     public static Slot Create(
         DateTime time,
@@ -20,7 +22,7 @@ public class Slot : BaseEntity<Guid>
             Time = time,
             IsReserved = false,
             Cost = cost,
-            CreatedAt = DateTime.UtcNow,
+            CreatedAt = DateTime.UtcNow
         };
     }
 

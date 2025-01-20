@@ -30,12 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MediSyncHub.AppointmentConfirmationModule.Services\MediSyncHub.AppointmentConfirmationModule.Services.csproj" />
-    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBookingModule\Infrastructure\MediSyncHub.Modules.AppointmentBookingModule.Infrastructure\AppointmentBooking.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBookingModule\Presentation\MediSyncHub.Modules.AppointmentBookingModule.Endpoints\AppointmentBooking.Endpoints.csproj" />
-    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentConfirmationModul\DAL\MediSyncHub.AppointmentConfirmationModul.DAL\MediSyncHub.AppointmentConfirmationModule.DAL.csproj" />
-    <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailabilityModule\Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business\MediSyncHub.Modules.DoctorAvailabilityModule.Business.csproj" />
-    <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailabilityModule\Presentation\MediSyncHub.Modules.DoctorAvailabilityModule.API\DoctorAvailability.API.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBooking\Core\Application\AppointmentBooking.Application\AppointmentBooking.Application.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBooking\Infrastructure\AppointmentBooking.Infrastructure\AppointmentBooking.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBooking\Presentation\AppointmentBooking.Endpoints\AppointmentBooking.Endpoints.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentConfirmation\Services\AppointmentConfirmation.Services\AppointmentConfirmation.Services.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailability\Business\DoctorAvailability.Business\DoctorAvailability.Business.csproj" />
+    <ProjectReference Include="..\..\MediSyncHub.Modules\DoctorAvailability\Presentation\DoctorAvailability.API\DoctorAvailability.API.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.SharedKernel\MediSyncHub.SharedKernel.csproj" />
   </ItemGroup>
 

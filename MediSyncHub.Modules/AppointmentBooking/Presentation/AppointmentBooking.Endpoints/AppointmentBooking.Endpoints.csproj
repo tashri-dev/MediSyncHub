@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Application\MediSyncHub.Modules.AppointmentBookingModule.Application\AppointmentBooking.Application.csproj" />
-    <ProjectReference Include="..\..\Infrastructure\MediSyncHub.Modules.AppointmentBookingModule.Infrastructure\AppointmentBooking.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Core\Application\AppointmentBooking.Application\AppointmentBooking.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\AppointmentBooking.Infrastructure\AppointmentBooking.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

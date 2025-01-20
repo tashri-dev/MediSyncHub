@@ -1,6 +1,6 @@
-﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Dtos;
+﻿using DoctorAvailability.Business.Dtos;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Services;
+namespace DoctorAvailability.Business.Services;
 
 public interface ISlotService
 {

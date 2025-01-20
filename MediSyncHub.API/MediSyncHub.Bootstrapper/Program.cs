@@ -1,14 +1,14 @@
-using MediSyncHub.AppointmentConfirmationModule.DAL.Database;
-using MediSyncHub.Modules.AppointmentBookingModule.Application.Extensions;
-using MediSyncHub.Modules.AppointmentBookingModule.Endpoints.Extenstion;
-using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Database;
-using MediSyncHub.Modules.DoctorAvailabilityModule.API.Extensions;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Extensions;
+using AppointmentBooking.Application.Extensions;
+using AppointmentBooking.Endpoints.Extenstion;
+using AppointmentBooking.Infrastructure.Data.Database;
+using AppointmentConfirmation.DAL.Database;
+using AppointmentConfirmation.Services.Extensions;
+using DoctorAvailability.API.Extensions;
+using DoctorAvailability.Business.Data;
+using DoctorAvailability.Business.Extensions;
 using MediSyncHub.SharedKernel.Exetinsions;
-using Microsoft.EntityFrameworkCore;
-using MediSyncHub.AppointmentConfirmationModule.Services.Extensions;
 using MediSyncHub.Bootstrapper.Middleware;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);

@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace MediSyncHub.SharedKernel.Events.EventBus;
+
 public class InMemoryEventBus(
     IServiceProvider serviceProvider,
     ILogger<InMemoryEventBus> logger)
@@ -23,7 +24,6 @@ public class InMemoryEventBus(
             var tasks = new List<Task>();
 
             foreach (var (handlerType, eventType) in registeredHandlers)
-            {
                 try
                 {
                     var handler = scope.ServiceProvider.GetService(handlerType);
@@ -39,24 +39,20 @@ public class InMemoryEventBus(
 
                     // Invoke the method with the event
                     var task = (Task)method.Invoke(
-                        handler, 
+                        handler,
                         new object[] { @event, cancellationToken })!;
 
                     tasks.Add(task);
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex, 
-                        "Error while handling event {EventName} with handler {HandlerType}", 
-                        eventName, 
+                    logger.LogError(ex,
+                        "Error while handling event {EventName} with handler {HandlerType}",
+                        eventName,
                         handlerType.Name);
                 }
-            }
 
-            if (tasks.Any())
-            {
-                await Task.WhenAll(tasks);
-            }
+            if (tasks.Any()) await Task.WhenAll(tasks);
         }
         else
         {
@@ -77,21 +73,14 @@ public class InMemoryEventBus(
             eventName,
             handlerType.Name);
 
-        if (!_handlers.ContainsKey(eventName))
-        {
-            _handlers[eventName] = new List<(Type HandlerType, Type EventType)>();
-        }
+        if (!_handlers.ContainsKey(eventName)) _handlers[eventName] = new List<(Type HandlerType, Type EventType)>();
 
         if (_handlers[eventName].Any(h => h.HandlerType == handlerType))
-        {
             logger.LogWarning(
-                "Handler Type {HandlerType} already registered for '{EventName}'", 
-                handlerType.Name, 
+                "Handler Type {HandlerType} already registered for '{EventName}'",
+                handlerType.Name,
                 eventName);
-        }
         else
-        {
             _handlers[eventName].Add((handlerType, eventType));
-        }
     }
 }

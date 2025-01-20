@@ -1,6 +1,6 @@
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
+using AppointmentBooking.Domain.Entities;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
+namespace AppointmentBooking.Domain.Repository;
 
 public interface ISlotRepository
 {

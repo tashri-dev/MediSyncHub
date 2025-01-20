@@ -1,4 +1,4 @@
-namespace MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
+namespace AppointmentConfirmation.DAL.Contracts;
 
 public interface IUnitOfWork
 {

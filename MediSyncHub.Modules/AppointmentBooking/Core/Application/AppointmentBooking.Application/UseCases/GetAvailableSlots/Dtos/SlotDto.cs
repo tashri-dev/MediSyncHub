@@ -1,6 +1,6 @@
-﻿using MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
+﻿using AppointmentBooking.Domain.Entities;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.GetAvailableSlots.Dtos;
+namespace AppointmentBooking.Application.UseCases.GetAvailableSlots.Dtos;
 
 public record CreateSlotDto
 {

@@ -1,12 +1,12 @@
+using AppointmentBooking.Domain.Entities;
+using AppointmentBooking.Domain.Repository;
 using MediatR;
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
 using MediSyncHub.SharedKernel.Events.EventBus;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.AppointmentBooking;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
 using Microsoft.Extensions.Logging;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Application.UseCases.BookAppointment;
+namespace AppointmentBooking.Application.UseCases.BookAppointment;
 
 public class BookAppointmentHandler(
     IAppointmentRepository appointmentRepository,

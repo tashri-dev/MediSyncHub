@@ -1,12 +1,12 @@
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
-using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Database;
-using MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Repository;
+using AppointmentBooking.Domain.Repository;
+using AppointmentBooking.Infrastructure.Data.Database;
+using AppointmentBooking.Infrastructure.Data.Repository;
 using MediSyncHub.SharedKernel.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Extensions;
+namespace AppointmentBooking.Infrastructure.Extensions;
 
 public static class DependencyInjection
 {

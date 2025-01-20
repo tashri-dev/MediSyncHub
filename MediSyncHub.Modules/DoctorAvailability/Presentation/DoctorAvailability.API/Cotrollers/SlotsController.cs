@@ -1,8 +1,8 @@
-﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Dtos;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Services;
+﻿using DoctorAvailability.Business.Dtos;
+using DoctorAvailability.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.API.Cotrollers;
+namespace DoctorAvailability.API.Cotrollers;
 
 [ApiController]
 [Route("api/[controller]")]

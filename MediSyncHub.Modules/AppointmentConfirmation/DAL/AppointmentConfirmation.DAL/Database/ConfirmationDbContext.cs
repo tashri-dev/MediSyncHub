@@ -1,8 +1,8 @@
-using MediSyncHub.AppointmentConfirmationModule.DAL.models;
-using MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
+using AppointmentConfirmation.DAL.Contracts;
+using AppointmentConfirmation.DAL.models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MediSyncHub.AppointmentConfirmationModule.DAL.Database;
+namespace AppointmentConfirmation.DAL.Database;
 
 public class ConfirmationDbContext(DbContextOptions<ConfirmationDbContext> options) : DbContext(options), IUnitOfWork
 {
@@ -20,8 +20,8 @@ public class ConfirmationDbContext(DbContextOptions<ConfirmationDbContext> optio
             builder.Property(x => x.PatientName).IsRequired();
             builder.Property(x => x.ReservedAt).IsRequired();
         });
-        modelBuilder.Entity<Notification>(builder=>
-            {
+        modelBuilder.Entity<Notification>(builder =>
+        {
             builder.ToTable("Notifications", "Confirmation");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.AppointmentId).IsRequired();

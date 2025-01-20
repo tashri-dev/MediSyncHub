@@ -1,7 +1,8 @@
-using MediSyncHub.AppointmentConfirmationModule.DAL.Database;
-using MediSyncHub.AppointmentConfirmationModule.DAL.models;
+using AppointmentConfirmation.DAL.Contracts;
+using AppointmentConfirmation.DAL.Database;
+using AppointmentConfirmation.DAL.models;
 
-namespace MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
+namespace AppointmentConfirmation.DAL.Implementations;
 
 internal class AppointmentRepoistory(ConfirmationDbContext context) : IAppointmentRepository
 {

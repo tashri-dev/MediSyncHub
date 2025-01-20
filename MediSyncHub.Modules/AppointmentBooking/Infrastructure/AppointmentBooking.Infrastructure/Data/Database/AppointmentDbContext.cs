@@ -1,8 +1,8 @@
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Entities;
-using MediSyncHub.Modules.AppointmentBookingModule.Domain.Repository;
+using AppointmentBooking.Domain.Entities;
+using AppointmentBooking.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 
-namespace MediSyncHub.Modules.AppointmentBookingModule.Infrastructure.Data.Database;
+namespace AppointmentBooking.Infrastructure.Data.Database;
 
 public class BookingDbContext(DbContextOptions<BookingDbContext> options) : DbContext(options), IUnitOfWork
 {

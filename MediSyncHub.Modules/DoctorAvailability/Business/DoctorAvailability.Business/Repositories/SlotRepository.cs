@@ -1,9 +1,10 @@
-﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Business.Data;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
-using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Repository;
+﻿using DoctorAvailability.Business.Data;
+using DoctorAvailability.Data.Entities;
+using DoctorAvailability.Data.Repository;
+
 using Microsoft.EntityFrameworkCore;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Repositories;
+namespace DoctorAvailability.Business.Repositories;
 
 internal class SlotRepository(DoctorAvailabilityDbContext context) : ISlotRepository
 {
@@ -15,8 +16,10 @@ internal class SlotRepository(DoctorAvailabilityDbContext context) : ISlotReposi
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<IEnumerable<Slot>> GetAllSlotsAsync(CancellationToken cancellationToken = default) =>
-        await context.Slots.ToListAsync(cancellationToken);
+    public async Task<IEnumerable<Slot>> GetAllSlotsAsync(CancellationToken cancellationToken = default)
+    {
+        return await context.Slots.ToListAsync(cancellationToken);
+    }
 
     public async Task<Slot> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {

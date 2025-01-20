@@ -1,9 +1,9 @@
-using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Repository;
+using DoctorAvailability.Data.Repository;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
 using MediSyncHub.SharedKernel.Handlers;
 using Microsoft.Extensions.Logging;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.IntegrationEvents.Handlers;
+namespace DoctorAvailability.Business.IntegrationEvents.Handlers;
 
 public class SlotReservationIntegrationEventHandler(
     ISlotRepository slotRepository,
@@ -18,7 +18,7 @@ public class SlotReservationIntegrationEventHandler(
         await slotRepository.UpdateAsync(slot, cancellationToken);
 
         logger.LogInformation(
-            "Slot {SlotId} reservation status updated to {IsReserved}",  
+            "Slot {SlotId} reservation status updated to {IsReserved}",
             @event.SlotId,
             @event.IsReserved);
     }

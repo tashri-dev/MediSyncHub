@@ -1,6 +1,6 @@
-using MediSyncHub.AppointmentConfirmationModule.DAL.models;
+using AppointmentConfirmation.DAL.models;
 
-namespace MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
+namespace AppointmentConfirmation.DAL.Contracts;
 
 public interface IAppointmentRepository
 {

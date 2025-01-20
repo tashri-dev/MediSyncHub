@@ -1,11 +1,12 @@
-using MediSyncHub.AppointmentConfirmationModule.DAL.Database;
-using MediSyncHub.AppointmentConfirmationModule.DAL.Repository;
+using AppointmentConfirmation.DAL.Contracts;
+using AppointmentConfirmation.DAL.Database;
+using AppointmentConfirmation.DAL.Implementations;
 using MediSyncHub.SharedKernel.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MediSyncHub.AppointmentConfirmationModule.DAL.Extensions;
+namespace AppointmentConfirmation.DAL.Extensions;
 
 public static class DependencyInjection
 {

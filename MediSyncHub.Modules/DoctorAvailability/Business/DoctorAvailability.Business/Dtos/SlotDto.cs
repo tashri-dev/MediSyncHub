@@ -1,6 +1,6 @@
-﻿using MediSyncHub.Modules.DoctorAvailabilityModule.Data.Entities;
+﻿using DoctorAvailability.Data.Entities;
 
-namespace MediSyncHub.Modules.DoctorAvailabilityModule.Business.Dtos;
+namespace DoctorAvailability.Business.Dtos;
 
 public record CreateSlotDto
 {
