@@ -12,7 +12,7 @@ public class ManagementDbContext(DbContextOptions<ManagementDbContext> options) 
     {
         modelBuilder.Entity<Appointment>(builder =>
         {
-            builder.ToTable("Appointments", "Management");
+            builder.ToTable("Appointments", "management");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.SlotId).IsRequired();
             builder.Property(x => x.PatientId).IsRequired();
