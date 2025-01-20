@@ -7,5 +7,5 @@ public interface IAppointmentRepository
     Task<IEnumerable<Appointment>> GetUpcomingAppointmentsAsync(CancellationToken cancellationToken = default);
     Task<Appointment> GetByIdAsync(Guid appointmentId, CancellationToken cancellationToken = default);
     Task AddAsync(Appointment appointment, CancellationToken cancellationToken = default);
-    void Update(Appointment appointment, CancellationToken cancellationToken = default);
+    void Update(Appointment appointment);
 }

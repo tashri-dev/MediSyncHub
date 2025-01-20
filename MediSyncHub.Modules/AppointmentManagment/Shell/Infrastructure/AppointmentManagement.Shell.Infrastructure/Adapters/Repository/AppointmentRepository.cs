@@ -5,38 +5,30 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentManagement.Shell.Infrastructure.Adapters.Repository;
 
-public class AppointmentRepository : IAppointmentRepository
+public class AppointmentRepository(ManagementDbContext dbContext) : IAppointmentRepository
 {
-    ManagementDbContext _dbContext;
-
-    public AppointmentRepository(ManagementDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-
-
     public async Task<IEnumerable<Appointment>> GetUpcomingAppointmentsAsync(
         CancellationToken cancellationToken = default)
     {
-        var appointments = _dbContext.Appointments
-            .Where(a => a.AppointmentTime > DateTime.Now
-                        && a.Status == Status.Pending);
-        return await appointments.ToListAsync(cancellationToken);
+        var appointments = await dbContext.Appointments
+            .Where(a => a.AppointmentTime > DateTime.UtcNow
+                        && a.Status == Status.Pending).ToListAsync(cancellationToken);
+        return appointments;
     }
 
-    public async Task<Appointment> GetByIdAsync(Guid appointmentId, CancellationToken cancellationToken = default)
+    public async Task<Appointment> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        var appointment = await _dbContext.Appointments.FindAsync(appointmentId, cancellationToken);
+        var appointment = await dbContext.Appointments.FindAsync(id, cancellationToken);
         return appointment ?? throw new Exception("Appointment not found");
     }
 
     public async Task AddAsync(Appointment appointment, CancellationToken cancellationToken = default)
     {
-        await _dbContext.Appointments.AddAsync(appointment, cancellationToken);
+        await dbContext.Appointments.AddAsync(appointment, cancellationToken);
     }
 
-    public void Update(Appointment appointment, CancellationToken cancellationToken = default)
+    public void Update(Appointment appointment)
     {
-        _dbContext.Appointments.Update(appointment);
+        dbContext.Appointments.Update(appointment);
     }
 }
