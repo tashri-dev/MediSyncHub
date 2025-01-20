@@ -1,6 +1,6 @@
 namespace MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
 
-public record SlotReservationIntegrationEvent(
+public record SlotIntegrationEvents(
     Guid SlotId,
     bool IsReserved,
     DateTime UpdatedAt

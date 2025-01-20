@@ -22,7 +22,7 @@ public class SlotCreatedIntegrationEventHandler(
                 @event.Cost,
                 @event.CreatedAt);
 
-            await slotRepository.AddAsync(slotReplica);
+            await slotRepository.AddAsync(slotReplica, cancellationToken);
             await unitOfWork.SaveChangesAsync(cancellationToken);
             logger.LogInformation(
                 "Slot replica created for slot {SlotId}",

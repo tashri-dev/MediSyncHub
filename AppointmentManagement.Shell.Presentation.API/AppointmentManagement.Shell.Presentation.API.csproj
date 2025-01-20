@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.4.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MediSyncHub.Modules\AppointmentManagment\Core\Application\AppointmentManagement.Core.Application\AppointmentManagement.Core.Application.csproj" />
+      <ProjectReference Include="..\MediSyncHub.Modules\AppointmentManagment\Shell\Infrastructure\AppointmentManagement.Shell.Infrastructure\AppointmentManagement.Shell.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

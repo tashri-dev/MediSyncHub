@@ -30,7 +30,7 @@ public static class DependencyInjection
         using (var scope = app.Services.CreateScope())
         {
             var eventBus = scope.ServiceProvider.GetRequiredService<IEventBus>();
-            eventBus.Subscribe<SlotReservationIntegrationEvent, SlotReservationIntegrationEventHandler>();
+            eventBus.Subscribe<SlotIntegrationEvents, SlotReservationIntegrationEventHandler>();
         }
 
         return app;

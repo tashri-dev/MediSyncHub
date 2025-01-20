@@ -3,6 +3,9 @@ using AppointmentBooking.Endpoints.Extenstion;
 using AppointmentBooking.Infrastructure.Data.Database;
 using AppointmentConfirmation.DAL.Database;
 using AppointmentConfirmation.Services.Extensions;
+using AppointmentManagement.Shell.Infrastructure.Adapters.Persistence;
+using AppointmentManagement.Shell.Infrastructure.Extensions;
+using AppointmentManagement.Shell.Presentation.API.Extensions;
 using DoctorAvailability.API.Extensions;
 using DoctorAvailability.Business.Data;
 using DoctorAvailability.Business.Extensions;
@@ -29,7 +32,7 @@ services.AddSharedInfrastructure(builder.Configuration);
 services.AddAvailabilityModule(builder.Configuration);
 services.AddAppointmentBookingModule(builder.Configuration);
 services.AddAppointmentConfirmationModule(builder.Configuration);
-
+services.AddManagementModule(builder.Configuration);
 var app = builder.Build();
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
@@ -51,7 +54,7 @@ await MigrateDb();
 app.ConfigureAppointmentBookingEventBus();
 app.ConfigureDoctorAvailabilityEventBus();
 app.ConfigureAppointmentBookedEventBus();
-
+app.ConfigureAppointmentManamgemntEventBus();
 app.Run();
 
 
@@ -69,6 +72,9 @@ async Task MigrateDb()
 
         var confirmationDbContext = scopeServiceProvider.GetRequiredService<ConfirmationDbContext>();
         await confirmationDbContext.Database.MigrateAsync();
+
+        var managementDbContext = scopeServiceProvider.GetRequiredService<ManagementDbContext>();
+        await managementDbContext.Database.MigrateAsync();
     }
     catch (Exception ex)
     {

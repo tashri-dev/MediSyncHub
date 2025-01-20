@@ -8,7 +8,6 @@ public class Slot : BaseEntity<Guid>
     public DateTime Time { get; private set; }
     public bool IsReserved { get; private set; }
     public decimal Cost { get; private set; }
-
     private Slot()
     {
     }

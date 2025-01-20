@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\AppointmentManagement.Shell.Presentation.API\AppointmentManagement.Shell.Presentation.API.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBooking\Core\Application\AppointmentBooking.Application\AppointmentBooking.Application.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBooking\Infrastructure\AppointmentBooking.Infrastructure\AppointmentBooking.Infrastructure.csproj" />
     <ProjectReference Include="..\..\MediSyncHub.Modules\AppointmentBooking\Presentation\AppointmentBooking.Endpoints\AppointmentBooking.Endpoints.csproj" />
