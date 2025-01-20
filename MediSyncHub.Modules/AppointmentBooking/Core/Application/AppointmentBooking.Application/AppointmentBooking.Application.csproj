@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\MediSyncHub.Modules.AppointmentBookingModule.Domain\MediSyncHub.Modules.AppointmentBookingModule.Domain.csproj" />
+    <ProjectReference Include="..\..\Domain\MediSyncHub.Modules.AppointmentBookingModule.Domain\AppointmentBooking.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
