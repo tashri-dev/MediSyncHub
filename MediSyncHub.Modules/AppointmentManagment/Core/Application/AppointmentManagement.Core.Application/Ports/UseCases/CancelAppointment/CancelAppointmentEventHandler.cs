@@ -22,6 +22,8 @@ public class CancelAppointmentEventHandler(
     {
         logger.LogInformation("completing appointment {AppointmentId}", request.AppointmentId);
         var appointment = await appointmentRepository.GetByIdAsync(request.AppointmentId, cancellationToken);
+        appointment.MarkAsCancelled();
+        appointmentRepository.Update(appointment);
         await PublishEventsAsync(appointment, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
         logger.LogInformation("Appointment {AppointmentId} booked", appointment.Id);

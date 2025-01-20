@@ -7,7 +7,8 @@ using Microsoft.Extensions.Logging;
 
 namespace AppointmentManagement.Core.Application.Ports.UseCases.CompleteAppointmnet;
 
-public record CompleteAppointmentCommand(Guid AppointmentId):IRequest<ManipulateAppointmentResult>;
+public record CompleteAppointmentCommand(Guid AppointmentId) : IRequest<ManipulateAppointmentResult>;
+
 public class CompleteAppointmentHandler(
     IAppointmentRepository appointmentRepository,
     IEventBus eventBus,
@@ -20,6 +21,8 @@ public class CompleteAppointmentHandler(
     {
         logger.LogInformation("completing appointment {AppointmentId}", request.AppointmentId);
         var appointment = await appointmentRepository.GetByIdAsync(request.AppointmentId, cancellationToken);
+        appointment.MarkAsCompleted();
+        appointmentRepository.Update(appointment);
         await PublishEventsAsync(appointment, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
         logger.LogInformation("Appointment {AppointmentId} booked", appointment.Id);
