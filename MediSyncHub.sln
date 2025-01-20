@@ -49,6 +49,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.Appoint
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.Modules.AppointmentBookingModule.Endpoints", "MediSyncHub.Modules\AppointmentBookingModule\Presentation\MediSyncHub.Modules.AppointmentBookingModule.Endpoints\MediSyncHub.Modules.AppointmentBookingModule.Endpoints.csproj", "{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppointmentConfirmationModule", "AppointmentConfirmationModule", "{75E6898F-3A9F-4F82-A4D3-556B2B45D07F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.AppointmentConfirmationModule.DAL", "MediSyncHub.Modules\AppointmentConfirmationModul\DAL\MediSyncHub.AppointmentConfirmationModul.DAL\MediSyncHub.AppointmentConfirmationModule.DAL.csproj", "{4401B853-060E-4A04-9DAE-C10A161A6EE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{B39296B8-A1C0-4FD5-98B6-6876977ACE1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{1C0037E5-9383-4BB9-AE66-B4201046E1A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediSyncHub.AppointmentConfirmationModule.Services", "..\MediSyncHub.AppointmentConfirmationModule.Services\MediSyncHub.AppointmentConfirmationModule.Services.csproj", "{04CE9938-2EEA-40B9-B5A7-8829D2294B77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +105,14 @@ Global
 		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4401B853-060E-4A04-9DAE-C10A161A6EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4401B853-060E-4A04-9DAE-C10A161A6EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4401B853-060E-4A04-9DAE-C10A161A6EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4401B853-060E-4A04-9DAE-C10A161A6EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04CE9938-2EEA-40B9-B5A7-8829D2294B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CE9938-2EEA-40B9-B5A7-8829D2294B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04CE9938-2EEA-40B9-B5A7-8829D2294B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04CE9938-2EEA-40B9-B5A7-8829D2294B77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,5 +137,10 @@ Global
 		{C40CFFB1-C393-4977-A54F-37E16E4A8179} = {B47E35AF-AC78-4E6F-B893-1213A94747E9}
 		{1112A8E0-EA26-41F1-B72D-964FA1A6A943} = {3035810A-C947-4AB0-AD77-19E4AE0086E0}
 		{13E7F5C7-335B-49A8-96CF-F5A23F4D6EF2} = {031C5F8D-D039-4830-B796-8DFBE0B470A6}
+		{75E6898F-3A9F-4F82-A4D3-556B2B45D07F} = {86C1AEA6-B6D2-4BEF-BD5D-2A4ADC95CA4E}
+		{4401B853-060E-4A04-9DAE-C10A161A6EE0} = {B39296B8-A1C0-4FD5-98B6-6876977ACE1F}
+		{B39296B8-A1C0-4FD5-98B6-6876977ACE1F} = {75E6898F-3A9F-4F82-A4D3-556B2B45D07F}
+		{1C0037E5-9383-4BB9-AE66-B4201046E1A6} = {75E6898F-3A9F-4F82-A4D3-556B2B45D07F}
+		{04CE9938-2EEA-40B9-B5A7-8829D2294B77} = {1C0037E5-9383-4BB9-AE66-B4201046E1A6}
 	EndGlobalSection
 EndGlobal

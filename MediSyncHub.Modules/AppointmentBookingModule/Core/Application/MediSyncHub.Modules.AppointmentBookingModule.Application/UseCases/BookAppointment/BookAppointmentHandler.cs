@@ -73,7 +73,11 @@ public class BookAppointmentHandler(
                 appointment.SlotId,
                 appointment.PatientId,
                 appointment.PatientName,
-                appointment.ReservedAt)
+                Guid.NewGuid(), //Todo: get doctor id from slot
+                "Omar Taha", //Todo: get doctor name from slot
+                appointment.ReservedAt,
+                slot.Time,
+                appointment.CreatedAt)
         };
 
         var integrationEventTasks = integrationEvents.Select(e => eventBus.PublishAsync(e, cancellationToken));
