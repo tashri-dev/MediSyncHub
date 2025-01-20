@@ -63,7 +63,7 @@ public class BookAppointmentHandler(
         // Integration events
         var integrationEvents = new object[]
         {
-            new SlotReservationIntegrationEvent(
+            new SlotIntegrationEvents(
                 slot.Id,
                 true,
                 DateTime.UtcNow),

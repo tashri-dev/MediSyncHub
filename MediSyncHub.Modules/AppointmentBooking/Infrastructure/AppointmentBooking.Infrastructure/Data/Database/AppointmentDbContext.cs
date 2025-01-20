@@ -19,6 +19,8 @@ public class BookingDbContext(DbContextOptions<BookingDbContext> options) : DbCo
             builder.Property(x => x.PatientId).IsRequired();
             builder.Property(x => x.PatientName).IsRequired();
             builder.Property(x => x.ReservedAt).IsRequired();
+            builder.Property(x => x.Status).HasConversion<int>()
+                .HasDefaultValue(Status.Pending);
         });
 
         modelBuilder.Entity<Slot>(builder =>

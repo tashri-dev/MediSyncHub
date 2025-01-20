@@ -1,5 +1,6 @@
 using AppointmentBooking.Application.IntegrationEvents.Handlers;
 using MediSyncHub.SharedKernel.Events.EventBus;
+using MediSyncHub.SharedKernel.Events.IntegrationEvents.AppointmentManagement;
 using MediSyncHub.SharedKernel.Events.IntegrationEvents.DoctorAvailability;
 using MediSyncHub.SharedKernel.Handlers;
 using Microsoft.AspNetCore.Builder;
@@ -17,7 +18,8 @@ public static class DependencyInjection
 
         // Register event handlers
         services.AddScoped<SlotCreatedIntegrationEventHandler>();
-
+        services.AddScoped<AppointmentCancelledEventHandler>();
+        services.AddScoped<AppointmentCompletedEventHandler>();
         return services;
     }
 
@@ -26,6 +28,9 @@ public static class DependencyInjection
         using var scope = app.Services.CreateScope();
         var eventBus = scope.ServiceProvider.GetRequiredService<IEventBus>();
         eventBus.Subscribe<SlotCreatedIntegrationEvent, SlotCreatedIntegrationEventHandler>();
+        eventBus.Subscribe<AppointmentCancelledIntegrationEvent, AppointmentCancelledEventHandler>();
+        eventBus.Subscribe<AppointmentCompletedIntegrationEvent, AppointmentCompletedEventHandler>();
+
         return app;
     }
 }

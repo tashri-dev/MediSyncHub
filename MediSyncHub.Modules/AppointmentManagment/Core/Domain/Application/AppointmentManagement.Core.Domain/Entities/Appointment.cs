@@ -1,7 +1,6 @@
 ﻿using MediSyncHub.SharedKernel.Data;
-using MediSyncHub.SharedKernel.Data.Events;
 
-namespace AppointmentBooking.Domain.Entities;
+namespace AppointmentManagement.Core.Domain.Entities;
 
 public class Appointment : BaseEntity<Guid>
 {
@@ -10,7 +9,7 @@ public class Appointment : BaseEntity<Guid>
     public string PatientName { get; private set; }
     public DateTime ReservedAt { get; private set; } = DateTime.UtcNow;
     public Status Status { get; private set; }
-    public Slot Slot { get; private set; }
+    public DateTime AppointmentTime { get; private set; }
 
     private Appointment()
     {
@@ -20,32 +19,42 @@ public class Appointment : BaseEntity<Guid>
     {
         if (Status == Status.Cancelled)
             throw new InvalidOperationException("Appointment is already cancelled");
+        if (Status == Status.Completed)
+            throw new InvalidOperationException("cannot cancel a completed appointment.");
         Status = Status.Cancelled;
         UpdatedAt = DateTime.UtcNow;
     }
 
     public void MarkAsCompleted()
     {
-        if (Status == Status.Completed)
-            throw new InvalidOperationException("Appointment is already completed");
+        if (Status == Status.Cancelled)
+            throw new InvalidOperationException("Cannot complete a canceled appointment.");
+        if (AppointmentTime > DateTime.UtcNow)
+            throw new InvalidOperationException("Cannot complete an appointment that hasn't occurred yet.");
+
         Status = Status.Completed;
         UpdatedAt = DateTime.UtcNow;
     }
 
 
     public static Appointment Create(
+        Guid appointmentId,
         Guid slotId,
         Guid patientId,
-        string patientName)
+        string patientName,
+        DateTime appointmentTime,
+        DateTime createdAt,
+        DateTime reservedAt)
     {
         var appointment = new Appointment
         {
-            Id = Guid.NewGuid(),
+            Id = appointmentId,
             SlotId = slotId,
             PatientId = patientId,
             PatientName = patientName,
-            ReservedAt = DateTime.UtcNow,
-            CreatedAt = DateTime.UtcNow,
+            ReservedAt = reservedAt,
+            CreatedAt = createdAt,
+            AppointmentTime = appointmentTime,
             Status = Status.Pending
         };
         return appointment;

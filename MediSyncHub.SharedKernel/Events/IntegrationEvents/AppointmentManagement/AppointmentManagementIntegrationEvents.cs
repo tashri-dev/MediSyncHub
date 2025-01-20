@@ -1,0 +1,5 @@
+﻿namespace MediSyncHub.SharedKernel.Events.IntegrationEvents.AppointmentManagement;
+
+public record AppointmentCompletedIntegrationEvent(Guid AppointmentId);
+
+public record AppointmentCancelledIntegrationEvent(Guid AppointmentId);

@@ -11,4 +11,15 @@ public class AppointmentRepository(BookingDbContext context) : IAppointmentRepos
     {
         await context.Appointments.AddAsync(appointment);
     }
+
+    public async Task<Appointment> GetByIdAsync(Guid appointmentId, CancellationToken cancellationToken)
+    {
+        var appointment = await context.Appointments.FindAsync(appointmentId);
+        return appointment ?? throw new Exception("Appointment not found");
+    }
+
+    public void Update(Appointment appointment)
+    {
+        context.Appointments.Update(appointment);
+    }
 }
